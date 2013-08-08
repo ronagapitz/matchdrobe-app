@@ -24,7 +24,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">        <link rel="stylesheet" type="text/css" href="css/index.css" />
        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
 
-        <title>Hello World</title>
+        <title>Matchdrobe App</title>
     </head>
     <body>
         <div class="container">
@@ -40,10 +40,16 @@
             app.initialize();
         </script>
 		<script>
+		
+		$( document ).bind( "mobileinit", function() {
+    // Make your jQuery Mobile framework configuration changes here!
+
+    $.mobile.allowCrossDomainPages = true;
+});
 		$(function()
 		{
-	
-		$(".container").load('http://matchdrobe.com/catalog/ajaxloader.php');
+	$.support.cors = true;
+		$("div.container").load('http://matchdrobe.com/catalog/ajaxloader.php');
 		
 		});
 		</script>
