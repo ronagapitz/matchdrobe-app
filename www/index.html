@@ -91,8 +91,19 @@
       //  window.localStorage.removeItem("key");
         window.localStorage.setItem("key2", "value2");
       //  window.localStorage.clear();
+	  if (localStorage.getItem("key") === null) {
+  alert('null');
+}
+
+else
+{
+alert('not null');
+}
+
+
+ localStorage.lastname="Smith";
+ alert( localStorage.lastname);
 	  
-	  alert(valuex);
         // localStorage is now empty
 
 	$.support.cors = true;
