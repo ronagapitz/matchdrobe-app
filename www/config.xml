@@ -110,5 +110,5 @@ Matchdrobe App    </description>
 <gap:plugin name="com.phonegap.plugins.facebookconnect">
     <param name="APP_ID" value="493708454047333" />
     <param name="APP_NAME" value="Matchdrobe App" />
-</gap:plugin>=
+</gap:plugin>
 </widget>
