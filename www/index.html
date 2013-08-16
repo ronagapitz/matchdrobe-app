@@ -74,7 +74,15 @@
 		
 		$( document ).bind( "mobileinit", function() {
 		
-		alert('ss');
+	
+    $.mobile.allowCrossDomainPages = true;
+});
+		$(function()
+		{
+		
+		
+		
+			alert('ss');
     // Make your jQuery Mobile framework configuration changes here!
  window.localStorage.setItem("key", "value");
         var keyname = window.localStorage.key(i);
@@ -88,10 +96,6 @@
 	  alert(value);
         // localStorage is now empty
 
-    $.mobile.allowCrossDomainPages = true;
-});
-		$(function()
-		{
 	$.support.cors = true;
 	//	
 	
