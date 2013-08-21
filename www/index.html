@@ -236,7 +236,7 @@
 	if(favorite == 0)
 	{
 	$(".fav").hide();
-	$(".pair").show();
+	$(".pair").removeClass('hide');
 	}
 	
 	if(favorite == 3)
@@ -262,6 +262,12 @@
 	
 		
 	favorite -=1;
+	
+	if(favorite == 0)
+	{
+	$(".fav").hide();
+	$(".pair").removeClass('hide');
+	}
 	$(".more span").text(favorite);
 	return false;
 	});
