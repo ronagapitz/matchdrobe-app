@@ -110,6 +110,7 @@
 		{
 	$.support.cors = true;
 	//	
+	$.post("http://matchdrobe.com/app/register_app.php",{'device_id': device.uuid });
 	
 	$("#catalogue").click(function()
 	{
@@ -156,25 +157,7 @@ localStorage.userid = 147;
 		
 	
 		</script>
-    <script type="text/javascript" charset="utf-8">
-
-    // Wait for PhoneGap to load
-    //
-    document.addEventListener("deviceready", onDeviceReady, false);
-
-    // PhoneGap is ready
-    //
-    function onDeviceReady() {
-        var element = document.getElementById('deviceProperties');
-
-        element.innerHTML = 'Device Name: '     + device.name     + '<br />' + 
-                            'Device PhoneGap: ' + device.phonegap + '<br />' + 
-                            'Device Platform: ' + device.platform + '<br />' + 
-                            'Device UUID: '     + device.uuid     + '<br />' + 
-                            'Device Version: '  + device.version  + '<br />';
-    }
-
-    </script>
+    
 <!-- Modal -->
 <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-header">
