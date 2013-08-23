@@ -196,7 +196,6 @@
 	
 	//pair
 	
-	$('.pair').load("http://matchdrobe.com/catalog/app_ajax_loader.php?gender=12");
 	
 	
 	
@@ -233,26 +232,40 @@
 	var fave = $(this).attr('href');
 	$(".more").show();
 	
+	
+	//show paired items
 	if(favorite == 0)
 	{
 	$(".fav").hide();
+		$('.pair').load("http://matchdrobe.com/catalog/app_ajax_loader.php?gender="+localStorage.fav1);
+
 	$(".pair").removeClass('hide');
 	}
 	
 	if(favorite == 3)
 	{
+	
+	
+		localStorage.fav1 = fave;
+
 	$.post("http://matchdrobe.com/app/register_app.php",{'device': device.uuid, '3' : fave},function()
 	{
 	
 	});
 	}if(favorite == 2)
 	{
+	
+			localStorage.fav2 = fave;
+
 	$.post("http://matchdrobe.com/app/register_app.php",{'device': device.uuid, '2' : fave},function()
 	{
 	
 	});
 	}if(favorite == 1)
 	{
+	
+			localStorage.fav3 = fave;
+
 	$.post("http://matchdrobe.com/app/register_app.php",{'device': device.uuid, '1' : fave},function()
 	{
 	
