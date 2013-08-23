@@ -197,11 +197,30 @@
 	//pair
 	
 	
-	
-	
+	//pair by random selected categories
+	var getter = 1;
 	
 	$('.pair').on('click', 'img', function() {
-		$('.pair').load("http://matchdrobe.com/catalog/app_ajax_loader.php?gender=12");
+	if(getter ==1)
+	{
+		$('.pair').load("http://matchdrobe.com/catalog/app_ajax_loader.php?cat="+localStorage.f1);
+		getter +=1;
+		}
+		
+		if(getter ==2)
+	{
+		$('.pair').load("http://matchdrobe.com/catalog/app_ajax_loader.php?cat="+localStorage.f2);
+				getter +=1;
+
+		}
+		
+		
+		if(getter ==3)
+	{
+		$('.pair').load("http://matchdrobe.com/catalog/app_ajax_loader.php?cat="+localStorage.f3);
+				getter =1;
+
+		}
 
 	});
 	// end pair
@@ -213,11 +232,9 @@
 	
 	 $('.fav').removeClass('hide');
 	 $(".gender").hide();
-	$.post("http://matchdrobe.com/app/register_app.php",{'device': device.uuid,'gender': gender},function()
-	{
-	localStorage.gender = gender;
-	
-	});
+	 	localStorage.gender = gender;
+
+	$.post("http://matchdrobe.com/app/register_app.php",{'device': device.uuid,'gender': gender});
 	return false;
 	});
 	
@@ -232,44 +249,23 @@
 	var fave = $(this).attr('href');
 	$(".more").show();
 	
-	
-	//show paired items
-	if(favorite == 0)
-	{
-	$(".fav").hide();
-		$('.pair').load("http://matchdrobe.com/catalog/app_ajax_loader.php?gender="+localStorage.fav1);
 
-	$(".pair").removeClass('hide');
-	}
 	
 	if(favorite == 3)
 	{
-	
-	
-		localStorage.fav1 = fave;
-
-	$.post("http://matchdrobe.com/app/register_app.php",{'device': device.uuid, '3' : fave},function()
-	{
-	
-	});
+	localStorage.f3 = fave;
+	$.post("http://matchdrobe.com/app/register_app.php",{'device': device.uuid, '3' : fave});
 	}if(favorite == 2)
 	{
 	
-			localStorage.fav2 = fave;
+		localStorage.f2 = fave;
 
-	$.post("http://matchdrobe.com/app/register_app.php",{'device': device.uuid, '2' : fave},function()
-	{
-	
-	});
+	$.post("http://matchdrobe.com/app/register_app.php",{'device': device.uuid, '2' : fave});
 	}if(favorite == 1)
 	{
-	
-			localStorage.fav3 = fave;
+		localStorage.f1 = fave;
 
-	$.post("http://matchdrobe.com/app/register_app.php",{'device': device.uuid, '1' : fave},function()
-	{
-	
-	});
+	$.post("http://matchdrobe.com/app/register_app.php",{'device': device.uuid, '1' : fave});
 	}
 	
 	
@@ -278,6 +274,8 @@
 	
 	if(favorite == 0)
 	{
+			$('.pair').load("http://matchdrobe.com/catalog/app_ajax_loader.php?cat="+localStorage.f1);
+
 	$(".fav").hide();
 	$(".pair").removeClass('hide');
 	}
