@@ -29,27 +29,56 @@
 		
 		
 		
-		
-		@font-face {
-    font-family: 'futura';
-    src: url('futura.ttf');
 	
-	*, h1
-	{
-	font-family: futura !important;
-	}
-	.marg
-	{
-	margin-bottom: 20px !important;
-	margin-top: 20px !important;
-	}
 		</style>
     </head>
     <body>
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog ">
+      <div class="modal-content like_modal">
+	  
+	  <!--
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title">Modal title</h4>
+        </div>
+		
+		-->
+        <div class="modal-body">
+          <input type="text" class="tags" /> <br/> <br/>
+		  
+		  <a class="pull-left" href=# data-dismiss="modal"><img src="img/b_back.png" /></a>  		  <a  href=#  class="confirm"  data-dismiss="modal"><img src="img/confirm.png" /></a>
+
+		  
+        </div>
+      
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
         <div class="container">
-		<div class="gender">
+		
+ <!-- Button trigger modal -->
+ 
+		<!-- first page -->
+		<div>
+		<div class="row text-center first">
+		<img  src="img/first.png" />
+		</div>
+		
+		<div class="row text-center first">
+		<a class="hide_me" href=".gender"><img  src="img/begin.png" /></a>
+		</div>
+		</div>
+		<!-- end of first -->
+		
+		
+		
+		
+		<div class="gender hide">
 		<div class="row text-center">
-		<h1> Are You?</h1>
+		<img  src="img/areyou.png" />
 		</div>
 		
 		<div class="row  text-center">
@@ -74,13 +103,28 @@
 		
 		
 		<div class="row  pair hide">
+		<div class="row text-center style col-xs-12">
+	<a href="fav" class="hide_me">	<img class="pull-left" href="fav"  src="img/back.png" /></a>
+				<img   src="img/style.png" />
+
 		
+		</div>
+		
+		<div class="cont text-center">
+		<div class="items">
+				
+
+				</div>
+				<a href=# style="position: relative;
+top: -273px;"><img src="img/tap.png" /></a>
+		</div>
 		
 		</div>
 				<div class="fav hide">
 				<div class="row text-center" style="margin-bottom: 20px !important;
 	margin-top: 20px !important;">
-						<h1> Choose Your three favorite items </h1>
+								<img  src="img/choose.png" />
+
 
 				</div>
 				
@@ -135,7 +179,7 @@
 		<div class="row text-center more"  style="display: none;margin-bottom: 20px !important;
 	margin-top: 20px !important;">
 	
-	<h1><span></span> more</h1>
+	<p  style=""><span></span> more</p>
 	</div>
 		</div>
 		
@@ -171,6 +215,22 @@
   <a class="lead pull-right" id="catalogue"  > <img src="./img/skip.png" /></a>
 	</div>
   </div> -->
+  <div class ="navbar-fixed-bottom col-xs-12">
+  <div class="foot row hide ">
+  <div class="col-xs-4 text-center">
+ <a href=#> discover</a>
+  </div>
+
+   <div class="col-xs-4 text-center">
+ <a href=#> matchdrobe </a>
+  </div>
+   <div class="col-xs-4 text-center">
+ <a href=#> settings </a>
+  </div>
+</div>
+  
+  </div>
+  
 </div>
 
         <script type="text/javascript" src="phonegap.js"></script>
@@ -196,20 +256,30 @@
 	
 	//pair
 	
-	
+		
+		$(".hide_me").click(function()
+		{
+$(this).parent().parent().hide();
+var $show = $(this).attr("href");
+$($show).removeClass("hide");
+return false;
+
+		});
 	//pair by random selected categories
 	var getter = 1;
 	
-	$('.pair').on('click', 'img', function() {
+	$('.confirm').on('click', function() {
+	
+	$(".items").empty();
 	if(getter ==1)
 	{
-		$('.pair').load("http://matchdrobe.com/catalog/app_ajax_loader.php?cat="+localStorage.f1);
+		$('.pair .items').empty().load("http://matchdrobe.com/catalog/app_ajax_loader.php?cat="+localStorage.f1);
 		getter +=1;
 		}
 		
 		if(getter ==2)
 	{
-		$('.pair').load("http://matchdrobe.com/catalog/app_ajax_loader.php?cat="+localStorage.f2);
+		$('.pair .items').empty().load("http://matchdrobe.com/catalog/app_ajax_loader.php?cat="+localStorage.f2);
 				getter +=1;
 
 		}
@@ -217,7 +287,7 @@
 		
 		if(getter ==3)
 	{
-		$('.pair').load("http://matchdrobe.com/catalog/app_ajax_loader.php?cat="+localStorage.f3);
+		$('.pair .items').empty().load("http://matchdrobe.com/catalog/app_ajax_loader.php?cat="+localStorage.f3);
 				getter =1;
 
 		}
@@ -274,10 +344,10 @@
 	
 	if(favorite == 0)
 	{
-			$('.pair').load("http://matchdrobe.com/catalog/app_ajax_loader.php?cat="+localStorage.f1);
+			$('.pair .cont .items').load("http://matchdrobe.com/catalog/app_ajax_loader.php?cat="+localStorage.f1);
 
 	$(".fav").hide();
-	$(".pair").removeClass('hide');
+	$(".pair,.foot").removeClass('hide');
 	}
 	$(".more span").text(favorite);
 	return false;
@@ -324,6 +394,8 @@ localStorage.userid = 147;
 		
 		}
 		
+	
+		
 		
 		   var element = document.getElementById('deviceProperties');
 
@@ -337,22 +409,6 @@ localStorage.userid = 147;
 	
 		</script>
     
-<!-- Modal 
-<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-header">
-    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-    <h3 id="myModalLabel">Login</h3>
-  </div>
-  <div class="modal-body">
-   <table>
-   <tr><td>Email</td><td><input id="email" type="text" /></td></tr>
-      <tr><td>Password</td><td><input type="password" /></td></tr>
-
-   </table>
-  </div>
-  <div class="modal-footer">
-    <button class="btn btn-primary login">Login</button>
-  </div>
-</div> -->
+  
     </body>
 </html>
