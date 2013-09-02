@@ -49,7 +49,7 @@
         <div class="modal-body">
           <input type="text" class="tags" /> <br/> <br/>
 		  
-		  <a class="pull-left" href=# data-dismiss="modal"><img src="img/b_back.png" /></a>  		  <a  href=#  class="confirm"  data-dismiss="modal"><img src="img/confirm.png" /></a>
+		  <a class="pull-left" href=# data-dismiss="modal" id="cancel"><img src="img/b_back.png" /></a>  		  <a  href=#  class="confirm"  data-dismiss="modal"><img src="img/confirm.png" /></a>
 
 		  
         </div>
@@ -68,7 +68,7 @@
 		</div>
 		
 		<div class="row text-center first">
-		<a class="hide_me" href=".gender"><img  src="img/begin.png" /></a>
+		<a class="hide_me" data-hide=".first" href=".gender"><img  src="img/begin.png" /></a>
 		</div>
 		</div>
 		<!-- end of first -->
@@ -85,10 +85,10 @@
 		
 		
 				<div class="col-xs-6 text-center">
-				<a href="male"><img   src="img/male.png" /></a>
+				<a href="male" data-show="#fav_male"><img   src="img/male.png" /></a>
 				</div>
 				<div class="col-xs-6 text-center">
-		<a href="female">	<img   src="img/female.png" /> </a>
+		<a href="female"  data-show="#fav_fem">	<img   src="img/female.png" /> </a>
 
 				</div>
 		</div>
@@ -104,7 +104,7 @@
 		
 		<div class="row  pair hide">
 		<div class="row text-center style col-xs-12">
-	<a href="fav" class="hide_me">	<img class="pull-left" href="fav"  src="img/back.png" /></a>
+	<a href=".fav" data-hide=".pair" class="hide_me">	<img class="pull-left"  src="img/back.png" /></a>
 				<img   src="img/style.png" />
 
 		
@@ -115,30 +115,41 @@
 				
 
 				</div>
-				<a href=# style="position: relative;
-top: -273px;"><img src="img/tap.png" /></a>
+				<a href=# style=" position:absolute;
+        left:0;
+        right:0;
+        margin-left:auto;
+        margin-right:auto;width: 180px;top:200px"><img src="img/tap.png" /></a>
+		
+				<img  id="skipper"  class="pull-right" src="img/skip.png" />
+
 		</div>
+		
+		
+		
 		
 		</div>
 				<div class="fav hide">
+					<a href=".gender" data-hide=".fav" class="hide_me" >	<img class="pull-left" href="fav"  src="img/back.png" /></a>
+
 				<div class="row text-center" style="margin-bottom: 20px !important;
 	margin-top: 20px !important;">
 								<img  src="img/choose.png" />
 
 
 				</div>
-				
+			 <div id="fav_fem" class="hide">	<!-- begin female -->
 				<div class="row text-center marg" style="margin-bottom: 20px !important;
 	margin-top: 20px !important;">
 				<div class="col-xs-4 text-center">
-				<a href="54"><img   src="img/f_shirt.png" /></a>
+				<a href="61"><img   src="img/f_shirt.png"  data-src="img/f_shirt.png" data-selected="img/f_shirt2.png" /></a>
 
 				</div>
 				<div class="col-xs-4 text-center">
-				<a href="12"><img   src="img/f_dress.png" /></a>
+				<a href="12"><img   src="img/f_dress.png"  data-src="img/f_dress.png" data-selected="img/f_dress2.png" /></a>
 
 				</div><div class="col-xs-4 text-center">
-				<a href="15"><img   src="img/f_jeans.png" /></a>
+				<a href="15"><img   src="img/f_jeans.png" data-src="img/f_jeans.png"  data-selected="img/f_jeans2.png" /></a>
 
 				</div>
 				</div>
@@ -146,14 +157,14 @@ top: -273px;"><img src="img/tap.png" /></a>
 				<div class="row text-center" style="margin-bottom: 20px !important;
 	margin-top: 20px !important;">
 				<div class="col-xs-4 text-center">
-				<a href="14"><img   src="img/f_skirt.png" /></a>
+				<a href="14"><img   src="img/f_skirt.png"  data-src="img/f_skirt.png"  data-selected="img/f_shorts2.png" /></a>
 
 				</div>
 				<div class="col-xs-4 text-center">
-				<a href="64"><img   src="img/f_under.png" /></a>
+				<a href="64"><img   src="img/f_under.png"  data-src="img/f_under.png"  data-selected="img/f_under2.png" /></a>
 
 				</div><div class="col-xs-4 text-center">
-				<a href="66"><img   src="img/f_shorts.png" /></a>
+				<a href="66"><img   src="img/f_shorts.png"  data-src="img/f_shorts.png"  data-selected="img/f_skirt2.png" /></a>
 
 				</div>
 				</div>
@@ -161,18 +172,74 @@ top: -273px;"><img src="img/tap.png" /></a>
 				<div class="row text-center"  style="margin-bottom: 20px !important;
 	margin-top: 20px !important;">
 				<div class="col-xs-4 text-center">
-				<a href="16"><img   src="img/f_beauty.png" /></a>
+				<a href="16"><img   src="img/f_beauty2.png"  data-src="img/f_beauty2.png"  data-selected="img/f_beauty.png" /></a>
 
 				</div>
 				<div class="col-xs-4 text-center">
-				<a href="47"><img   src="img/f_shoes.png" /></a>
+				<a href="53"><img   src="img/f_shoes.png"   data-src="img/f_shoes.png"   data-selected="img/f_shoes2.png"/></a>
 
 				</div><div class="col-xs-4 text-center">
-				<a href="71"><img   src="img/f_accesories.png" /></a>
+				<a href="71"><img   src="img/f_accesories.png"   data-src="img/f_accesories.png"  data-selected="img/f_accesories.png" /></a>
 
 				</div>
 				</div>
-		
+				
+				
+				</div><!-- end female -->
+				
+				
+				
+				 <div id="fav_male" class="hide">	<!-- begin male -->
+				<div class="row text-center marg" style="margin-bottom: 20px !important;
+	margin-top: 20px !important;">
+				<div class="col-xs-4 text-center">
+				<a href="61"><img   src="img/m_shirt.png"  data-src="img/m_shirt.png" data-selected="img/m_shirt2.png" /></a>
+
+				</div>
+				<div class="col-xs-4 text-center">
+				<a href="99"><img   src="img/m_suits.png"  data-src="img/m_suits.png" data-selected="img/m_suits2.png" /></a>
+
+				</div><div class="col-xs-4 text-center">
+				<a href="58"><img   src="img/m_jeans.png"  data-src="img/m_jeans.png"  data-selected="img/m_jeans2.png" /></a>
+
+				</div>
+				</div>
+				
+				<div class="row text-center" style="margin-bottom: 20px !important;
+	margin-top: 20px !important;">
+				<div class="col-xs-4 text-center">
+				<a href="101"><img   src="img/m_short.png"    data-src="img/m_short.png"  data-selected="img/m_short2.png" /></a>
+
+				</div>
+				
+				<div class="col-xs-4 text-center">
+				<a href="47"><img   src="img/m_shoe.png"  data-src="img/m_shoe.png"  data-selected="img/m_shoe2.png" /></a>
+
+				</div>
+				<div class="col-xs-4 text-center">
+				<a href="140"><img   src="img/m_under.png"   data-src="img/m_under.png" data-selected="img/m_under2.png" /></a>
+
+				</div>
+				</div>
+				
+				<div class="row text-center"  style="margin-bottom: 20px !important;
+	margin-top: 20px !important;">
+				<div class="col-xs-4 text-center">
+				<a href="104"><img   src="img/m_tie.png"  data-src="img/m_tie.png"  data-selected="img/m_tie2.png" /></a>
+
+				</div>
+				<div class="col-xs-4 text-center">
+				<a href="124"><img   src="img/m_bag.png" data-src="img/m_bag.png"   data-selected="img/m_bag2.png"/></a>
+
+				</div><div class="col-xs-4 text-center">
+				<a href="46"><img   src="img/m_beauty.png"  data-src="img/m_beauty.png"  data-selected="img/m_beauty2.png" /></a>
+
+				</div>
+				</div>
+				
+				</div>
+				
+				
 		
 		
 		
@@ -253,24 +320,52 @@ top: -273px;"><img src="img/tap.png" /></a>
 		$(function()
 		{
 	$.support.cors = true;
-	
+	var favorite = 3;
 	//pair
 	
 		
 		$(".hide_me").click(function()
 		{
-$(this).parent().parent().hide();
+//$(this).parent().parent().hide();
+var $hide = $(this).attr("data-hide");
+$($hide).hide();
+
 var $show = $(this).attr("href");
-$($show).removeClass("hide");
+$($show).removeClass("hide").show();
+if($show == '.fav')
+{
+
+$('.fav img').each(function() {
+    // ...
+	
+	$(this).attr('src',$(this).attr('data-src'));
+});
+}
+
+favorite = 3;
 return false;
 
-		});
+	
+
+	});
+	
+	
+	$("#skipper").on('click',function()
+	{
+	$('.confirm').click();
+	});
+	
 	//pair by random selected categories
 	var getter = 1;
-	
+	$("")
 	$('.confirm').on('click', function() {
+	$("#cancel").click(function()
+	{
 	
+	$(".tags").val("");
+	});
 	$(".items").empty();
+	$(".tags").val("");
 	if(getter ==1)
 	{
 		$('.pair .items').empty().load("http://matchdrobe.com/catalog/app_ajax_loader.php?cat="+localStorage.f1);
@@ -299,12 +394,13 @@ return false;
 	$(".gender a").click(function()
 	{
 	 var gender = $(this).attr('href');
-	
-	 $('.fav').removeClass('hide');
+	var $show =  $(this).attr('data-show');
+	$($show).removeClass('hide').show();
+	 $('.fav').removeClass('hide').show();
 	 $(".gender").hide();
 	 	localStorage.gender = gender;
 
-	$.post("http://matchdrobe.com/app/register_app.php",{'device': device.uuid,'gender': gender});
+	//$.post("http://matchdrobe.com/app/register_app.php",{'device': device.uuid,'gender': gender});
 	return false;
 	});
 	
@@ -312,10 +408,11 @@ return false;
 	//end gender
 	//	favorite
 	
-	var favorite = 3;
+	
 	$(".fav a").click(function()
 	{
 	$(this).addClass('selected');
+	$('img',this).attr('src',$('img',this).attr('data-selected'));
 	var fave = $(this).attr('href');
 	$(".more").show();
 	
@@ -324,18 +421,18 @@ return false;
 	if(favorite == 3)
 	{
 	localStorage.f3 = fave;
-	$.post("http://matchdrobe.com/app/register_app.php",{'device': device.uuid, '3' : fave});
+	//$.post("http://matchdrobe.com/app/register_app.php",{'device': device.uuid, '3' : fave});
 	}if(favorite == 2)
 	{
 	
 		localStorage.f2 = fave;
 
-	$.post("http://matchdrobe.com/app/register_app.php",{'device': device.uuid, '2' : fave});
+	//$.post("http://matchdrobe.com/app/register_app.php",{'device': device.uuid, '2' : fave});
 	}if(favorite == 1)
 	{
 		localStorage.f1 = fave;
 
-	$.post("http://matchdrobe.com/app/register_app.php",{'device': device.uuid, '1' : fave});
+	//$.post("http://matchdrobe.com/app/register_app.php",{'device': device.uuid, '1' : fave});
 	}
 	
 	
@@ -353,13 +450,10 @@ return false;
 	return false;
 	});
 	
-	
+		localStorage.userid = device.uuid;
+
 	// end favorite
-	$.post("http://matchdrobe.com/app/register_app.php",{'device_id': device.uuid },function()
-	{
-	localStorage.userid = device.uuid;
-	
-	});
+	//$.post("http://matchdrobe.com/app/register_app.php",{'device_id': device.uuid });
 	
 	$("#catalogue").click(function()
 	{
