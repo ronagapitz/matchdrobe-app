@@ -9,7 +9,20 @@
 	$.support.cors = true;
 	var favorite = 3;
 	
+			$(".points").load("http://matchdrobe.com/app/register_app.php",{'get_points': device.uuid});
+
+	//show discover
+	
+	$(".d_link").click(function()
+	{
+	
+		$(".foot").css({'background':'url(img/footer.png)','background-size': '100% 100%'});
+$(".pair").show();
+$(".matchdrobe").hide();
+	});
+	
 	//my matchdreobe
+		
 		
 	$(".m_link").click(function()
 	{
