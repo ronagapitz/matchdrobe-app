@@ -100,8 +100,7 @@ return false;
 
 	});
 	
-	
-	$("#skipper").on('click',function()
+	$(document).on("click", "#skipper",function()
 	{
 	
 	status = 0;
