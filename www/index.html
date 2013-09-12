@@ -98,15 +98,53 @@
 		
 		
 		
+<!-- matchdrobe -->
+		
+	<div class="row  matchdrobe hide">
+		<div class="row text-center style col-xs-12">
+	<a href=".pair" data-hide=".matchdrobe" class="hide_me">	<img class="pull-left"  src="img/back.png" /></a>
+				<img   src="img/style.png" />
 
 		
+		<div class="points pull-right">
+		sds
+		</div> 
+		
+		</div>
+		
+		<div class="cont text-center">
+		<div class="items">
+				
+
+				</div>
+				
+		<div class="single_item hide">
+		bla blab bnla sdsdsd
+		</div>
 		
 		
+		<div class="single_item_full hide">
+		bla blab bnla sdsdsd
+		</div>
+				
+		</div>
+		
+		
+		
+		
+		</div>
+		
+		<!--end  matchdrobe -->
+
 		<div class="row  pair hide">
 		<div class="row text-center style col-xs-12">
 	<a href=".fav" data-hide=".pair" class="hide_me">	<img class="pull-left"  src="img/back.png" /></a>
 				<img   src="img/style.png" />
 
+		
+		<div class="points pull-right">
+		sds
+		</div>
 		
 		</div>
 		
@@ -121,7 +159,6 @@
         margin-left:auto;
         margin-right:auto;width: 180px;top:200px"><img src="img/tap.png" /></a>
 		
-				<img  id="skipper"  class="pull-right" src="img/skip.png" />
 
 		</div>
 		
@@ -289,7 +326,7 @@
   </div>
 
    <div class="col-xs-4 text-center">
- <a href=#> matchdrobe </a>
+ <a href=#  class="m_link"> matchdrobe </a>
   </div>
    <div class="col-xs-4 text-center">
  <a href=#> settings </a>
@@ -306,186 +343,17 @@
 		    <script src="js/jquery.js"></script>
 
 		        <script type="text/javascript" src="js/bootstrap.min.js"></script>
+				
+        <script type="text/javascript">
+            app.initialize();
+        </script>
+	
+		        <script type="text/javascript" src="js/ron.js"></script>
 
         <script type="text/javascript">
             app.initialize();
         </script>
-		<script>
-		
-		$( document ).bind( "mobileinit", function() {
-    // Make your jQuery Mobile framework configuration changes here!
-
-    $.mobile.allowCrossDomainPages = true;
-});
-		$(function()
-		{
-	$.support.cors = true;
-	var favorite = 3;
-	//pair
 	
-		
-		$(".hide_me").click(function()
-		{
-//$(this).parent().parent().hide();
-var $hide = $(this).attr("data-hide");
-$($hide).hide();
-
-var $show = $(this).attr("href");
-$($show).removeClass("hide").show();
-if($show == '.fav')
-{
-
-$('.fav img').each(function() {
-    // ...
-	
-	$(this).attr('src',$(this).attr('data-src'));
-});
-}
-
-favorite = 3;
-return false;
-
-	
-
-	});
-	
-	
-	$("#skipper").on('click',function()
-	{
-	$('.confirm').click();
-	});
-	
-	//pair by random selected categories
-	var getter = 1;
-	$("")
-	$('.confirm').on('click', function() {
-	$("#cancel").click(function()
-	{
-	
-	$(".tags").val("");
-	});
-	$(".items").empty();
-	$(".tags").val("");
-	if(getter ==1)
-	{
-		$('.pair .items').empty().load("http://matchdrobe.com/catalog/app_ajax_loader.php?cat="+localStorage.f1);
-		getter +=1;
-		}
-		
-		if(getter ==2)
-	{
-		$('.pair .items').empty().load("http://matchdrobe.com/catalog/app_ajax_loader.php?cat="+localStorage.f2);
-				getter +=1;
-
-		}
-		
-		
-		if(getter ==3)
-	{
-		$('.pair .items').empty().load("http://matchdrobe.com/catalog/app_ajax_loader.php?cat="+localStorage.f3);
-				getter =1;
-
-		}
-
-	});
-	// end pair
-	//gender
-	
-	$(".gender a").click(function()
-	{
-	 var gender = $(this).attr('href');
-	var $show =  $(this).attr('data-show');
-	$($show).removeClass('hide').show();
-	 $('.fav').removeClass('hide').show();
-	 $(".gender").hide();
-	 	localStorage.gender = gender;
-
-	//$.post("http://matchdrobe.com/app/register_app.php",{'device': device.uuid,'gender': gender});
-	return false;
-	});
-	
-	
-	//end gender
-	//	favorite
-	
-	
-	$(".fav a").click(function()
-	{
-	$(this).addClass('selected');
-	$('img',this).attr('src',$('img',this).attr('data-selected'));
-	var fave = $(this).attr('href');
-	$(".more").show();
-	
-
-	
-	if(favorite == 3)
-	{
-	localStorage.f3 = fave;
-	//$.post("http://matchdrobe.com/app/register_app.php",{'device': device.uuid, '3' : fave});
-	}if(favorite == 2)
-	{
-	
-		localStorage.f2 = fave;
-
-	//$.post("http://matchdrobe.com/app/register_app.php",{'device': device.uuid, '2' : fave});
-	}if(favorite == 1)
-	{
-		localStorage.f1 = fave;
-
-	//$.post("http://matchdrobe.com/app/register_app.php",{'device': device.uuid, '1' : fave});
-	}
-	
-	
-		
-	favorite -=1;
-	
-	if(favorite == 0)
-	{
-			$('.pair .cont .items').load("http://matchdrobe.com/catalog/app_ajax_loader.php?cat="+localStorage.f1);
-
-	$(".fav").hide();
-	$(".pair,.foot").removeClass('hide');
-	}
-	$(".more span").text(favorite);
-	return false;
-	});
-	
-		localStorage.userid = device.uuid;
-
-	// end favorite
-	//$.post("http://matchdrobe.com/app/register_app.php",{'device_id': device.uuid });
-	
-	$("#catalogue").click(function()
-	{
-	$("div.container").fadeOut(function()
-	{
-	
-	$("div.container").empty().load('http://matchdrobe.com/catalog/app_ajax_loader.php').fadeIn();
-	});
-	
-});
-
-
-	
-	
-	
-	
-	
-		
-	
-		
-		
-		   var element = document.getElementById('deviceProperties');
-
-        element.innerHTML = 'Device Name: '     + device.name     + '<br />' + 
-                            'Device PhoneGap: ' + device.phonegap + '<br />' + 
-                            'Device Platform: ' + device.platform + '<br />' + 
-                            'Device UUID: '     + device.uuid     + '<br />' + 
-                            'Device Version: '  + device.version  + '<br />';
-		});
-		
-	
-		</script>
     
   
     </body>
