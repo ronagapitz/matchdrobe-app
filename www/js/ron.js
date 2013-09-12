@@ -28,7 +28,7 @@ $(".matchdrobe").hide();
 	{
 	$(".foot").css({'background':'url(img/footer2.png)','background-size': '100% 100%'});
 $(".pair").hide();
-$(".matchdrobe").removeClass("hide");
+$(".matchdrobe").removeClass("hide").show();
 $('.matchdrobe .items').empty().load("http://matchdrobe.com/catalog/app_ajax_loader.php?matchdrobe="+device.uuid);
 	});
 	
@@ -43,7 +43,7 @@ $('.matchdrobe .items').empty().load("http://matchdrobe.com/catalog/app_ajax_loa
 	function(){
 product_id = $(this).attr("data-id");
 $(".matchdrobe .items").hide();
-$(".single_item").removeClass("hide");
+$(".single_item").removeClass("hide").show();
 $(".single_item").empty().load("http://www.matchdrobe.com/app/app_details1.php?product_id="+product_id);
 return false();
 	
@@ -55,7 +55,7 @@ return false();
 	function(){
 
 $(".single_item").hide();
-$(".single_item_full").removeClass("hide").empty().load("http://www.matchdrobe.com/app/app_details2.php?product_id="+product_id);
+$(".single_item_full").removeClass("hide").show().empty().load("http://www.matchdrobe.com/app/app_details2.php?product_id="+product_id);
 	return false;
 	}); 
 	
@@ -219,7 +219,7 @@ return false;
 		});
 
 	$(".fav").hide();
-	$(".pair,.foot").removeClass('hide');
+	$(".pair,.foot").removeClass('hide').show();
 	}
 	$(".more span").text(favorite);
 	return false;
