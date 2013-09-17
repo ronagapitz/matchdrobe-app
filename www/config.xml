@@ -86,12 +86,7 @@ Matchdrobe App    </description>
  -->
  
      <gap:splash src="img/splash.png"         gap:platform="blackberry" />
-  <gap:splash src="img/splash.png"         gap:platform="blackberry" />
-    <gap:splash src="img/splash.png"    gap:platform="ios"     width="320" height="480" />
-    <gap:splash src="img/splash.png" gap:platform="ios"     width="640" height="960" />
-    <gap:splash src="img/splash.png"      gap:platform="ios"     width="768" height="1024" />
-    <gap:splash src="img/splash.png"     gap:platform="ios"     width="1024" height="768" />
-    <gap:splash src="img/splash.png" gap:platform="winphone" />
+
  <gap:splash src="img/splash.png"  gap:platform="android" gap:density="ldpi" />
     <gap:splash src="img/splash.png"  gap:platform="android" gap:density="mdpi" />
     <gap:splash src="img/splash.png"  gap:platform="android" gap:density="hdpi" />
