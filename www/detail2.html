@@ -44,32 +44,21 @@ top: 147px;">
 		</div>
 		
 		</div>
- 		<div class="row  pair container">
+ 	<div class="cont text-center container" style="margin-top: 100px;">
 	
-		
-		<div class="cont text-center container col-xs-12" style="margin-top: 90px">
-		<div class="items">
-				
 
-				</div>
-				<a href=# style=" position:absolute;
-        left:0;
-        right:0;
-        margin-left:auto;
-        margin-right:auto;width: 180px;top:200px"><img src="img/tap.png" /></a>
 		
 
-		</div>
 		
-		
-		
-		
+		<div class="single_item_full hide">
 		</div>
 				
+		</div>
+		
 				
 				
 <div class ="navbar-fixed-bottom col-xs-12" style="bottom: 0px;"  data-role="footer" data-position="fixed">
-  <div class="foot row ">
+  <div class="foot2 row ">
   <div class="col-xs-4 text-center">
  <a href="discover.html" class='d_link' rel="external"> discover</a>
   </div>
@@ -92,88 +81,14 @@ top: 147px;">
 		        <script type="text/javascript" src="js/bootstrap.min.js"></script>
 <script>
 $(function(){
-var item_1, item_2, status,elapsed, getter =1;
+
+$(".single_item_full").removeClass("hide").show().empty().load("http://www.matchdrobe.com/app/app_details2.php?product_id="+localStorage.pid);
+
 $.mobile.buttonMarkup.hoverDelay = 0; //delay
-			$(".points").load("http://matchdrobe.com/app/register_app.php",{'get_points': device.uuid});
-
-  	$('.pair .cont .items').load("http://matchdrobe.com/catalog/app_ajax_loader.php?cat="+localStorage.f1
-			,function()
-		{
-		item_1 = $(".items .hidden_pair").val();
-
-     item_2 = 	$(".items .hidden_pair").nextAll(".hidden_pair").val();
-	 
-		});
-		
-		
-		$(document).on("tap", "#skipper",function()
-	{
-	
-	status = 0;
-	$('.confirm').tap();
-	});
-			$(document).on("tap", ".items a", 
-	function(){
-
-if(status !== 0)
-{
-	 status = $(this).attr("data-id"); 
-	 
-	 }
-	
-	});  
-	
-	//pair
-		$('.confirm').on('tap', function() {
-
-		$.post("http://matchdrobe.com/app/register_app.php",{'pairing': device.uuid,'item_1':item_1,'item_2': item_2,'status': status,'elapsed': elapsed,'keywords': $('.tags').val() },function() //update points
-		{
 		$(".points").load("http://matchdrobe.com/app/register_app.php",{'get_points': device.uuid});
-			$(".tags").val("");
-		}
-		
-		
-		);
 
-	
-	$(".items").empty();
-	$(".tags").val("");
-	if(getter ==1)
-	{
-		$('.pair .items').empty().load("http://matchdrobe.com/catalog/app_ajax_loader.php?cat="+localStorage.f1
-		,function()
-		{
-		item_1 = $(".items .hidden_pair").val();
-//alert(item_1);		
-		});
-		getter +=1;
-		}
-		
-		if(getter ==2)
-	{
-		$('.pair .items').empty().load("http://matchdrobe.com/catalog/app_ajax_loader.php?cat="+localStorage.f2);
-				getter +=1;
+  //$('.items').empty().load("http://matchdrobe.com/catalog/app_ajax_loader.php?matchdrobe=1");
 
-		}
-		
-		
-		if(getter ==3)
-	{
-		$('.pair .items').empty().load("http://matchdrobe.com/catalog/app_ajax_loader.php?cat="+localStorage.f3);
-				getter =1;
-
-		}
-
-	});
-	
-	//end pair
-	
-	//cancel
-	$("#cancel").tap(function()
-	{
-	
-	$(".tags").val("");
-	});
 });
 </script>
  

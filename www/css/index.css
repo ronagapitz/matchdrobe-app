@@ -50,6 +50,12 @@ color: rgb(184, 9, 65) !important;
 	color: #ededed;
 	font-size: 18px !important;
 	}
+	.foot a,.foot2 a
+	{
+	padding: 10px;
+top: 4px;
+position: relative;
+	}
 	
 	.fixed_foot
 	{

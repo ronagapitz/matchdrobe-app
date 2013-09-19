@@ -1,1 +1,100 @@
-<div>sdfdsfdfdsfdsfdsfdsfdsf</div>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>tap demo</title>
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+       <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+       <link rel="stylesheet" type="text/css" href="css/mobile.css" />
+
+</head>
+<body>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog ">
+      <div class="modal-content like_modal">
+	  
+	  <!--
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title">Modal title</h4>
+        </div>
+		
+		-->
+        <div class="modal-body" style="position: relative;
+top: 147px;">
+          <input type="text" class="tags" /> <br/> <br/>
+		  
+		  <a class="pull-left" href=# data-dismiss="modal" id="cancel"><img src="img/b_back.png" /></a>  		  <a  href=#  class="confirm"  data-dismiss="modal"><img src="img/confirm.png" /></a>
+
+		  
+        </div>
+      
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
+ 	<div class="row text-center style col-xs-12 navbar-fixed-top" data-position="fixed" style=" height: 80px;background: white;">
+	<a href="#"   data-rel="back">	<img class="pull-left"  src="img/back.png" data-transition="slide" /></a>
+				<img   src="img/style.png" />
+
+		
+		<div class="points pull-right">
+		
+		</div>
+		
+		</div>
+ 	<div class="cont text-center container">
+	
+
+		
+
+		<div class="single_item" style="margin-top: 100px">
+		bla blab bnla sdsdsd
+		</div>
+		
+		
+		<div class="single_item_full hide">
+		</div>
+				
+		</div>
+		
+				
+				
+<div class ="navbar-fixed-bottom col-xs-12" style="bottom: 0px;"  data-role="footer" data-position="fixed">
+  <div class="foot2 row ">
+  <div class="col-xs-4 text-center">
+ <a href="discover.html" class='d_link' rel="external"> discover</a>
+  </div>
+
+   <div class="col-xs-4 text-center">
+ <a href="matchdrobe.html"  class="m_link" rel="external"> matchdrobe </a>
+  </div>
+   <div class="col-xs-4 text-center">
+ <a href="settings.html" rel="external"> settings </a>
+  </div>
+</div>
+  
+  </div>
+  <script type="text/javascript" src="phonegap.js"></script>
+		
+        <script type="text/javascript" src="js/index.js"></script>
+		    <script src="js/jquery.js"></script>
+		    <script src="js/mobile.js"></script>
+
+		        <script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script>
+$(function(){
+
+$(".single_item").empty().load("http://www.matchdrobe.com/app/app_details1.php?product_id="+localStorage.pid);
+
+$.mobile.buttonMarkup.hoverDelay = 0; //delay
+		//	$(".points").load("http://matchdrobe.com/app/register_app.php",{'get_points': device.uuid});
+
+  //$('.items').empty().load("http://matchdrobe.com/catalog/app_ajax_loader.php?matchdrobe=1");
+
+});
+</script>
+ 
+</body>
+</html>

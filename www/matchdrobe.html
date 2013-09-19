@@ -44,14 +44,13 @@ top: 147px;">
 		</div>
 		
 		</div>
- 	<div class="cont text-center container">
+ 	<div class="cont text-center container" style="margin-top: 100px">
 	
 
 		<div class="items">
 				
 
 				</div>
-							<a href="detail1.html" data-transition="flow">I'll pop</a>
 
 		<div class="single_item hide">
 		bla blab bnla sdsdsd
@@ -91,8 +90,12 @@ top: 147px;">
 <script>
 $(function(){
 $.mobile.buttonMarkup.hoverDelay = 0; //delay
-
-  $('.items').empty().load("http://matchdrobe.com/catalog/app_ajax_loader.php?matchdrobe=1");
+			$(".points").load("http://matchdrobe.com/app/register_app.php",{'get_points': device.uuid});
+$(document).on("tap",".single_p", function()
+{
+localStorage.pid = $(this).attr("data-id");
+});
+  $('.items').empty().load("http://matchdrobe.com/catalog/app_ajax_loader.php?matchdrobe="+device.uuid);
 
 });
 </script>
