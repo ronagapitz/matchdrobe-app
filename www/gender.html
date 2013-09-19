@@ -43,7 +43,7 @@
 $(function(){
 //alert(localStorage.gender);
   $( "#gender a" ).bind( "tap", 
-
+$.mobile.page.prototype.options.domCache = true;
 function()
 {
  var gender = $(this).attr('data-href');

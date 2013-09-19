@@ -85,7 +85,7 @@ top: 147px;">
 		        <script type="text/javascript" src="js/bootstrap.min.js"></script>
 <script>
 $(function(){
-
+$.mobile.page.prototype.options.domCache = true;
 $(".single_item").empty().load("http://www.matchdrobe.com/app/app_details1.php?product_id="+localStorage.pid);
 
 $.mobile.buttonMarkup.hoverDelay = 0; //delay

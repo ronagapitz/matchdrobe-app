@@ -89,6 +89,7 @@ top: 147px;">
 		        <script type="text/javascript" src="js/bootstrap.min.js"></script>
 <script>
 $(function(){
+$.mobile.page.prototype.options.domCache = true;
 $.mobile.buttonMarkup.hoverDelay = 0; //delay
 			$(".points").load("http://matchdrobe.com/app/register_app.php",{'get_points': localStorage.userid});
 $(document).on("tap",".single_p", function()
