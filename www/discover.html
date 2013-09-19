@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>tap demo</title>
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+       <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+       <link rel="stylesheet" type="text/css" href="css/mobile.css" />
+
+</head>
+<body>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog ">
+      <div class="modal-content like_modal">
+	  
+	  <!--
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title">Modal title</h4>
+        </div>
+		
+		-->
+        <div class="modal-body" style="position: relative;
+top: 147px;">
+          <input type="text" class="tags" /> <br/> <br/>
+		  
+		  <a class="pull-left" href=# data-dismiss="modal" id="cancel"><img src="img/b_back.png" /></a>  		  <a  href=#  class="confirm"  data-dismiss="modal"><img src="img/confirm.png" /></a>
+
+		  
+        </div>
+      
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
+ 	<div class="row text-center style col-xs-12 navbar-fixed-top" data-position="fixed" style=" height: 80px;background: white;">
+	<a href="#"   data-rel="back">	<img class="pull-left"  src="img/back.png" data-transition="slide" /></a>
+				<img   src="img/style.png" />
+
+		
+		<div class="points pull-right">
+		
+		</div>
+		
+		</div>
+ 		<div class="row  pair container">
+	
+		
+		<div class="cont text-center container col-xs-12" style="margin-top: 90px">
+		<div class="items">
+				
+
+				</div>
+				<a href=# style=" position:absolute;
+        left:0;
+        right:0;
+        margin-left:auto;
+        margin-right:auto;width: 180px;top:200px"><img src="img/tap.png" /></a>
+		
+
+		</div>
+		
+		
+		
+		
+		</div>
+				
+				
+				
+<div class ="navbar-fixed-bottom col-xs-12" style="bottom: 0px;"  data-role="footer" data-position="fixed">
+  <div class="foot row ">
+  <div class="col-xs-4 text-center">
+ <a href="discover.html" class='d_link' rel="external"> discover</a>
+  </div>
+
+   <div class="col-xs-4 text-center">
+ <a href="matchdrobe.html"  class="m_link" rel="external"> matchdrobe </a>
+  </div>
+   <div class="col-xs-4 text-center">
+ <a href="settings.html" rel="external"> settings </a>
+  </div>
+</div>
+  
+  </div>
+  <script type="text/javascript" src="phonegap.js"></script>
+		
+        <script type="text/javascript" src="js/index.js"></script>
+		    <script src="js/jquery.js"></script>
+		    <script src="js/mobile.js"></script>
+
+		        <script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script>
+$(function(){
+var item_1, item_2, status,elapsed, getter =1;
+$.mobile.buttonMarkup.hoverDelay = 0; //delay
+
+  	$('.pair .cont .items').load("http://matchdrobe.com/catalog/app_ajax_loader.php?cat="+localStorage.f1
+			,function()
+		{
+		item_1 = $(".items .hidden_pair").val();
+
+     item_2 = 	$(".items .hidden_pair").nextAll(".hidden_pair").val();
+	 
+		});
+		
+		
+		$(document).on("tap", "#skipper",function()
+	{
+	
+	status = 0;
+	$('.confirm').tap();
+	});
+			$(document).on("tap", ".items a", 
+	function(){
+
+if(status !== 0)
+{
+	 status = $(this).attr("data-id"); 
+	 
+	 }
+	
+	});  
+	
+	//pair
+		$('.confirm').on('tap', function() {
+
+		$.post("http://matchdrobe.com/app/register_app.php",{'pairing': device.uuid,'item_1':item_1,'item_2': item_2,'status': status,'elapsed': elapsed,'keywords': $('.tags').val() },function() //update points
+		{
+		$(".points").load("http://matchdrobe.com/app/register_app.php",{'get_points': device.uuid});
+			$(".tags").val("");
+		}
+		
+		
+		);
+
+	
+	$(".items").empty();
+	$(".tags").val("");
+	if(getter ==1)
+	{
+		$('.pair .items').empty().load("http://matchdrobe.com/catalog/app_ajax_loader.php?cat="+localStorage.f1
+		,function()
+		{
+		item_1 = $(".items .hidden_pair").val();
+//alert(item_1);		
+		});
+		getter +=1;
+		}
+		
+		if(getter ==2)
+	{
+		$('.pair .items').empty().load("http://matchdrobe.com/catalog/app_ajax_loader.php?cat="+localStorage.f2);
+				getter +=1;
+
+		}
+		
+		
+		if(getter ==3)
+	{
+		$('.pair .items').empty().load("http://matchdrobe.com/catalog/app_ajax_loader.php?cat="+localStorage.f3);
+				getter =1;
+
+		}
+
+	});
+	
+	//end pair
+	
+	//cancel
+	$("#cancel").tap(function()
+	{
+	
+	$(".tags").val("");
+	});
+});
+</script>
+ 
+</body>
+</html>

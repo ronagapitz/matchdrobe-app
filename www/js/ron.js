@@ -158,18 +158,7 @@ return false;
 	// end pair
 	//gender
 	
-	$(".gender a").click(function()
-	{
-	 var gender = $(this).attr('href');
-	var $show =  $(this).attr('data-show');
-	$($show).removeClass('hide').show();
-	 $('.fav').removeClass('hide').show();
-	 $(".gender").hide();
-	 	localStorage.gender = gender;
 
-	$.post("http://matchdrobe.com/app/register_app.php",{'device': device.uuid,'gender': gender});
-	return false;
-	});
 	
 	
 	//end gender

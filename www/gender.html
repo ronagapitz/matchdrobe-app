@@ -11,6 +11,26 @@
 </head>
 <body>
  
+ 
+ 
+ 
+ <div id="gender" class="gender container">
+		<div class="row text-center">
+		<img  src="img/areyou.png" />
+		</div>
+		
+		<div class="row  text-center">
+		
+		
+				<div class="col-xs-6 text-center">
+				<a href="favorite_male.html" data-href="male" data-show="#fav_male" rel="external"><img   src="img/male.png" /></a>
+				</div>
+				<div class="col-xs-6 text-center">
+		<a href="favorite_female.html" data-href="female"  data-show="#fav_fem" rel="external">	<img   src="img/female.png" /> </a>
+
+				</div>
+		</div>
+		</div>
 <h3>Tap the green square to see the above code applied:</h3>
 <div class="box"></div>
   <script type="text/javascript" src="phonegap.js"></script>
@@ -22,11 +42,17 @@
 		        <script type="text/javascript" src="js/bootstrap.min.js"></script>
 <script>
 $(function(){
-  $( "div.box" ).bind( "tap", tapHandler );
+//alert(localStorage.gender);
+  $( "#gender a" ).bind( "tap", 
+
+function()
+{
+ var gender = $(this).attr('data-href');
+localStorage.gender = gender;
+
+}  );
  
-  function tapHandler( event ){
-    $( event.target ).addClass( "tap" );
-  }
+  
 });
 </script>
  

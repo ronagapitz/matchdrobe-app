@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>tap demo</title>
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+       <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+       <link rel="stylesheet" type="text/css" href="css/mobile.css" />
+
+</head>
+<body>
+ 
+ <div class="fav row">
+					<a href="#"   data-rel="back" data-transition="slide">	<img class="pull-left" href="fav"  src="img/back.png" /></a>
+
+				<div class="row text-center" style="margin-bottom: 20px !important;
+	margin-top: 20px !important;">
+								<img  src="img/choose.png" />
+
+
+				</div>
+				</div>
+ 
+			 <div id="fav_fem" class="container">	<!-- begin female -->
+				<div class="row text-center marg" style="margin-bottom: 20px !important;
+	margin-top: 20px !important;">
+				<div class="col-xs-4 text-center">
+				<a href="61"><img   src="img/f_shirt.png"  data-src="img/f_shirt.png" data-selected="img/f_shirt2.png" /></a>
+
+				</div>
+				<div class="col-xs-4 text-center">
+				<a href="12"><img   src="img/f_dress.png"  data-src="img/f_dress.png" data-selected="img/f_dress2.png" /></a>
+
+				</div><div class="col-xs-4 text-center">
+				<a href="15"><img   src="img/f_jeans.png" data-src="img/f_jeans.png"  data-selected="img/f_jeans2.png" /></a>
+
+				</div>
+				</div>
+				
+				<div class="row text-center" style="margin-bottom: 20px !important;
+	margin-top: 20px !important;">
+				<div class="col-xs-4 text-center">
+				<a href="14"><img   src="img/f_skirt.png"  data-src="img/f_skirt.png"  data-selected="img/f_shorts2.png" /></a>
+
+				</div>
+				<div class="col-xs-4 text-center">
+				<a href="64"><img   src="img/f_under.png"  data-src="img/f_under.png"  data-selected="img/f_under2.png" /></a>
+
+				</div><div class="col-xs-4 text-center">
+				<a href="66"><img   src="img/f_shorts.png"  data-src="img/f_shorts.png"  data-selected="img/f_skirt2.png" /></a>
+
+				</div>
+				</div>
+				
+				<div class="row text-center"  style="margin-bottom: 20px !important;
+	margin-top: 20px !important;">
+				<div class="col-xs-4 text-center">
+				<a href="16"><img   src="img/f_beauty2.png"  data-src="img/f_beauty2.png"  data-selected="img/f_beauty.png" /></a>
+
+				</div>
+				<div class="col-xs-4 text-center">
+				<a href="53"><img   src="img/f_shoes.png"   data-src="img/f_shoes.png"   data-selected="img/f_shoes2.png"/></a>
+
+				</div><div class="col-xs-4 text-center">
+				<a href="71"><img   src="img/f_accesories.png"   data-src="img/f_accesories.png"  data-selected="img/f_accesories.png" /></a>
+
+				</div>
+				</div>
+				
+				
+				</div><!-- end female -->
+				
+				
+				
+				
+				
+
+  <script type="text/javascript" src="phonegap.js"></script>
+		
+        <script type="text/javascript" src="js/index.js"></script>
+		    <script src="js/jquery.js"></script>
+		    <script src="js/mobile.js"></script>
+
+		        <script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script>
+$(function(){
+var favorite = 3;
+  $( "#fav_fem a" ).bind( "tap",function()
+	{
+	$(this).addClass('selected');
+	$('img',this).attr('src',$('img',this).attr('data-selected'));
+	var fave = $(this).attr('href');
+	$(".more").show();
+	
+
+	
+	if(favorite == 3)
+	{
+	localStorage.f3 = fave;
+	//$.post("http://matchdrobe.com/app/register_app.php",{'device': device.uuid, '3' : fave});
+	}if(favorite == 2)
+	{
+	
+		localStorage.f2 = fave;
+
+	//$.post("http://matchdrobe.com/app/register_app.php",{'device': device.uuid, '2' : fave});
+	}if(favorite == 1)
+	{
+		localStorage.f1 = fave;
+
+	//$.post("http://matchdrobe.com/app/register_app.php",{'device': device.uuid, '1' : fave});
+	}
+	
+	
+		
+	favorite -=1;
+	
+	if(favorite == 0)
+	{
+	
+	window.location.replace('discover.html');
+	// $.mobile.changePage("discover.html");
+			$('.pair .cont .items').load("http://matchdrobe.com/catalog/app_ajax_loader.php?cat="+localStorage.f1
+			,function()
+		{
+		item_1 = $(".items .hidden_pair").val();
+
+     item_2 = 	$(".items .hidden_pair").nextAll(".hidden_pair").val();
+	 
+		});
+
+	//$(".fav").hide();
+	//$(".pair,.foot").removeClass('hide').show();
+	}
+	$(".more span").text(favorite);
+	return false;
+	});
+	
+ 
+  
+});
+</script>
+ 
+</body>
+</html>

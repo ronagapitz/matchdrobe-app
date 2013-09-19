@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>tap demo</title>
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+       <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+       <link rel="stylesheet" type="text/css" href="css/mobile.css" />
+
+</head>
+<body>
+ 
+ 
+ 
+<div class="fav row">
+					<a href="#"   data-rel="back">	<img class="pull-left" href="fav"  src="img/back.png" /></a>
+
+				<div class="row text-center" style="margin-bottom: 20px !important;
+	margin-top: 20px !important;">
+								<img  src="img/choose.png" />
+
+
+				</div>
+				</div>
+				 <div id="fav_male" class="container">	<!-- begin male -->
+				<div class="row text-center marg" style="margin-bottom: 20px !important;
+	margin-top: 20px !important;">
+				<div class="col-xs-4 text-center">
+				<a data-href="61"><img   src="img/m_shirt.png"  data-src="img/m_shirt.png" data-selected="img/m_shirt2.png" /></a>
+
+				</div>
+				<div class="col-xs-4 text-center">
+				<a href="99"><img   src="img/m_suits.png"  data-src="img/m_suits.png" data-selected="img/m_suits2.png" /></a>
+
+				</div><div class="col-xs-4 text-center">
+				<a href="58"><img   src="img/m_jeans.png"  data-src="img/m_jeans.png"  data-selected="img/m_jeans2.png" /></a>
+
+				</div>
+				</div>
+				
+				<div class="row text-center" style="margin-bottom: 20px !important;
+	margin-top: 20px !important;">
+				<div class="col-xs-4 text-center">
+				<a href="101"><img   src="img/m_short.png"    data-src="img/m_short.png"  data-selected="img/m_short2.png" /></a>
+
+				</div>
+				
+				<div class="col-xs-4 text-center">
+				<a href="47"><img   src="img/m_shoe.png"  data-src="img/m_shoe.png"  data-selected="img/m_shoe2.png" /></a>
+
+				</div>
+				<div class="col-xs-4 text-center">
+				<a href="140"><img   src="img/m_under.png"   data-src="img/m_under.png" data-selected="img/m_under2.png" /></a>
+
+				</div>
+				</div>
+				
+				<div class="row text-center"  style="margin-bottom: 20px !important;
+	margin-top: 20px !important;">
+				<div class="col-xs-4 text-center">
+				<a href="104"><img   src="img/m_tie.png"  data-src="img/m_tie.png"  data-selected="img/m_tie2.png" /></a>
+
+				</div>
+				<div class="col-xs-4 text-center">
+				<a href="124"><img   src="img/m_bag.png" data-src="img/m_bag.png"   data-selected="img/m_bag2.png"/></a>
+
+				</div><div class="col-xs-4 text-center">
+				<a href="46"><img   src="img/m_beauty.png"  data-src="img/m_beauty.png"  data-selected="img/m_beauty2.png" /></a>
+
+				</div>
+				</div>
+				
+				</div>
+				
+				
+
+  <script type="text/javascript" src="phonegap.js"></script>
+		
+        <script type="text/javascript" src="js/index.js"></script>
+		    <script src="js/jquery.js"></script>
+		    <script src="js/mobile.js"></script>
+
+		        <script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script>
+$(function(){
+var favorite = 3;
+  $( "#fav_male a" ).bind( "tap",function()
+	{
+	$(this).addClass('selected');
+	$('img',this).attr('src',$('img',this).attr('data-selected'));
+	var fave = $(this).attr('href');
+	$(".more").show();
+	
+
+	
+	if(favorite == 3)
+	{
+	localStorage.f3 = fave;
+	//$.post("http://matchdrobe.com/app/register_app.php",{'device': device.uuid, '3' : fave});
+	}if(favorite == 2)
+	{
+	
+		localStorage.f2 = fave;
+
+	//$.post("http://matchdrobe.com/app/register_app.php",{'device': device.uuid, '2' : fave});
+	}if(favorite == 1)
+	{
+		localStorage.f1 = fave;
+
+	//$.post("http://matchdrobe.com/app/register_app.php",{'device': device.uuid, '1' : fave});
+	}
+	
+	
+		
+	favorite -=1;
+	
+	if(favorite == 0)
+	{
+		window.location.replace('discover.html');
+
+			$('.pair .cont .items').load("http://matchdrobe.com/catalog/app_ajax_loader.php?cat="+localStorage.f1
+			,function()
+		{
+		item_1 = $(".items .hidden_pair").val();
+
+     item_2 = 	$(".items .hidden_pair").nextAll(".hidden_pair").val();
+	 
+		});
+
+	$(".fav").hide();
+	$(".pair,.foot").removeClass('hide').show();
+	}
+	$(".more span").text(favorite);
+	return false;
+	});
+	
+ 
+  
+});
+</script>
+ 
+</body>
+</html>

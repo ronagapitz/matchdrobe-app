@@ -1,3 +1,10 @@
+div.ui-input-text
+{
+width: 80%;
+border-radius: 0px;
+margin-left: 10px !important;
+
+}
 .points
 {
 -webkit-border-radius: 10px;
@@ -12,6 +19,7 @@ padding-right: 4px;
 
 }
 
+.ui-page { -webkit-backface-visibility: hidden; }
 .pink
 {
 color: rgb(184, 9, 65) !important;
@@ -37,7 +45,7 @@ color: rgb(184, 9, 65) !important;
 	margin-top: 20px !important;
 	}
 	
-	.foot *
+	.foot *. .foot2 *
 	{
 	color: #ededed;
 	font-size: 18px !important;
@@ -52,9 +60,17 @@ color: rgb(184, 9, 65) !important;
  .foot
 	{
 	
-	background: url(../img/footer.png);
-	background-size: 100% 100%;
-	height: 30px;
+	background: url(../img/footer.png) !important;
+	background-size: 100% 100%  !important;
+	height: 30px !important;
+	}
+	
+	.foot2
+	{
+	
+	background: url(../img/footer2.png) !important;
+	background-size: 100% 100%  !important;
+	height: 30px !important;
 	}
 	
 	.like_modal
