@@ -109,7 +109,17 @@
             app.initialize();
         </script>
 	
+<script>
+$(function()
+{
+localStorage.userid = device.uuid;
 
+	// end favorite
+	$.post("http://matchdrobe.com/app/register_app.php",{'device_id': device.uuid });
+	
+});
+
+</script>
        
 	
     
