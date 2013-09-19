@@ -92,8 +92,9 @@ top: 147px;">
 		        <script type="text/javascript" src="js/bootstrap.min.js"></script>
 <script>
 $(function(){
-var item_1, item_2, status,elapsed, getter =1;
 $.mobile.buttonMarkup.hoverDelay = 0; //delay
+
+var item_1, item_2, status,elapsed, getter =1;
 
   	$('.pair .cont .items').load("http://matchdrobe.com/catalog/app_ajax_loader.php?cat="+localStorage.f1
 			,function()
@@ -126,7 +127,7 @@ if(status !== 0)
 	//pair
 		$('.confirm').on('tap', function() {
 
-		$.post("http://matchdrobe.com/app/register_app.php",{'pairing': device.uuid,'item_1':item_1,'item_2': item_2,'status': status,'elapsed': elapsed,'keywords': $('.tags').val() },function() //update points
+		$.post("http://matchdrobe.com/app/register_app.php",{'pairing': device.uuid",'item_1':item_1,'item_2': item_2,'status': status,'elapsed': elapsed,'keywords': $('.tags').val() },function() //update points
 		{
 		$(".points").load("http://matchdrobe.com/app/register_app.php",{'get_points': device.uuid});
 			$(".tags").val("");
