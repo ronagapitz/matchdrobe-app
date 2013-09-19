@@ -94,7 +94,6 @@ top: 147px;">
 <script>
 $(function(){
 
-alert(device.uuid);
 var item_1, item_2, status, elapsed;
 var getter =1;
 
@@ -107,7 +106,7 @@ var getter =1;
 	 
 		});
 		
-			$(".points").load("http://matchdrobe.com/app/register_app.php",{'get_points': device.uuid});
+			$(".points").load("http://matchdrobe.com/app/register_app.php",{'get_points': localStorage.userid});
 		
 		$(document).on("tap", "#skipper",function()
 	{
@@ -129,9 +128,9 @@ if(status !== 0)
 	//pair
 		$('.confirm').on('tap', function() {
 
-		$.post("http://matchdrobe.com/app/register_app.php",{'pairing': device.uuid,'item_1':item_1,'item_2': item_2,'status': status,'elapsed': elapsed,'keywords': $('.tags').val() },function() //update points
+		$.post("http://matchdrobe.com/app/register_app.php",{'pairing': localStorage.userid,'item_1':item_1,'item_2': item_2,'status': status,'elapsed': elapsed,'keywords': $('.tags').val() },function() //update points
 		{
-		$(".points").load("http://matchdrobe.com/app/register_app.php",{'get_points': device.uuid});
+		$(".points").load("http://matchdrobe.com/app/register_app.php",{'get_points': localStorage.userid});
 			$(".tags").val("");
 		}
 		

@@ -89,7 +89,7 @@ $(function(){
 $(".single_item").empty().load("http://www.matchdrobe.com/app/app_details1.php?product_id="+localStorage.pid);
 
 $.mobile.buttonMarkup.hoverDelay = 0; //delay
-		//	$(".points").load("http://matchdrobe.com/app/register_app.php",{'get_points': device.uuid});
+			$(".points").load("http://matchdrobe.com/app/register_app.php",{'get_points': localStorage.userid});
 
   //$('.items').empty().load("http://matchdrobe.com/catalog/app_ajax_loader.php?matchdrobe=1");
 

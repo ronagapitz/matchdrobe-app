@@ -90,12 +90,12 @@ top: 147px;">
 <script>
 $(function(){
 $.mobile.buttonMarkup.hoverDelay = 0; //delay
-			$(".points").load("http://matchdrobe.com/app/register_app.php",{'get_points': device.uuid});
+			$(".points").load("http://matchdrobe.com/app/register_app.php",{'get_points': localStorage.userid});
 $(document).on("tap",".single_p", function()
 {
 localStorage.pid = $(this).attr("data-id");
 });
-  $('.items').empty().load("http://matchdrobe.com/catalog/app_ajax_loader.php?matchdrobe="+device.uuid);
+  $('.items').empty().load("http://matchdrobe.com/catalog/app_ajax_loader.php?matchdrobe="+localStorage.userid);
 
 });
 </script>
