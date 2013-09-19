@@ -95,7 +95,88 @@ top: 147px;">
 $(function(){
 
 alert(device.uuid);
+var item_1, item_2, status, elapsed;
+var getter =1;
 
+  	$('.pair .cont .items').load("http://matchdrobe.com/catalog/app_ajax_loader.php?cat="+localStorage.f1
+			,function()
+		{
+		item_1 = $(".items .hidden_pair").val();
+
+     item_2 = 	$(".items .hidden_pair").nextAll(".hidden_pair").val();
+	 
+		});
+		
+			$(".points").load("http://matchdrobe.com/app/register_app.php",{'get_points': device.uuid});
+		
+		$(document).on("tap", "#skipper",function()
+	{
+	
+	status = 0;
+	$('.confirm').tap();
+	});
+			$(document).on("tap", ".items a", 
+	function(){
+
+if(status !== 0)
+{
+	 status = $(this).attr("data-id"); 
+	 
+	 }
+	
+	});  
+	
+	//pair
+		$('.confirm').on('tap', function() {
+
+		$.post("http://matchdrobe.com/app/register_app.php",{'pairing': device.uuid,'item_1':item_1,'item_2': item_2,'status': status,'elapsed': elapsed,'keywords': $('.tags').val() },function() //update points
+		{
+		$(".points").load("http://matchdrobe.com/app/register_app.php",{'get_points': device.uuid});
+			$(".tags").val("");
+		}
+		
+		
+		);
+
+	
+	$(".items").empty();
+	$(".tags").val("");
+	if(getter ==1)
+	{
+		$('.pair .items').empty().load("http://matchdrobe.com/catalog/app_ajax_loader.php?cat="+localStorage.f1
+		,function()
+		{
+		item_1 = $(".items .hidden_pair").val();
+//alert(item_1);		
+		});
+		getter +=1;
+		}
+		
+		if(getter ==2)
+	{
+		$('.pair .items').empty().load("http://matchdrobe.com/catalog/app_ajax_loader.php?cat="+localStorage.f2);
+				getter +=1;
+
+		}
+		
+		
+		if(getter ==3)
+	{
+		$('.pair .items').empty().load("http://matchdrobe.com/catalog/app_ajax_loader.php?cat="+localStorage.f3);
+				getter =1;
+
+		}
+
+	});
+	
+	//end pair
+	
+	//cancel
+	$("#cancel").tap(function()
+	{
+	
+	$(".tags").val("");
+	});
 });
 </script>
  
