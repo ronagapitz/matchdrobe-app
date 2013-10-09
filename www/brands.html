@@ -23,52 +23,14 @@
 
 				</div>
 				</div>
-				 <div id="fav_male" class="container">	<!-- begin male -->
-				<div class="row text-center marg" style="margin-bottom: 20px !important;
-	margin-top: 20px !important;">
-				<div class="col-xs-4 text-center">
-				<a data-href="61"><img   src="img/m_shirt.png"  data-src="img/m_shirt.png" data-selected="img/m_shirt2.png" /></a>
-
-				</div>
-				<div class="col-xs-4 text-center">
-				<a href="99"><img   src="img/m_suits.png"  data-src="img/m_suits.png" data-selected="img/m_suits2.png" /></a>
-
-				</div><div class="col-xs-4 text-center">
-				<a href="58"><img   src="img/m_jeans.png"  data-src="img/m_jeans.png"  data-selected="img/m_jeans2.png" /></a>
-
-				</div>
-				</div>
+				 <div  class="container">	<!-- begin male -->
+			
 				
-				<div class="row text-center" style="margin-bottom: 20px !important;
-	margin-top: 20px !important;">
-				<div class="col-xs-4 text-center">
-				<a href="101"><img   src="img/m_short.png"    data-src="img/m_short.png"  data-selected="img/m_short2.png" /></a>
-
-				</div>
 				
-				<div class="col-xs-4 text-center">
-				<a href="47"><img   src="img/m_shoe.png"  data-src="img/m_shoe.png"  data-selected="img/m_shoe2.png" /></a>
-
-				</div>
-				<div class="col-xs-4 text-center">
-				<a href="140"><img   src="img/m_under.png"   data-src="img/m_under.png" data-selected="img/m_under2.png" /></a>
-
-				</div>
-				</div>
 				
-				<div class="row text-center"  style="margin-bottom: 20px !important;
+				<div class="row text-center brands"  style="margin-bottom: 20px !important;
 	margin-top: 20px !important;">
-				<div class="col-xs-4 text-center">
-		<!--		<a href="104"><img   src="img/m_tie.png"  data-src="img/m_tie.png"  data-selected="img/m_tie2.png" /></a> -->
-
-				</div>
-				<div class="col-xs-4 text-center">
-				<a href="124"><img   src="img/m_bag.png" data-src="img/m_bag.png"   data-selected="img/m_bag2.png"/></a>
-
-				</div><div class="col-xs-4 text-center">
-			<!--	<a href="46"><img   src="img/m_beauty.png"  data-src="img/m_beauty.png"  data-selected="img/m_beauty2.png" /></a> -->
-
-				</div>
+				
 				</div>
 				
 				</div>
@@ -84,6 +46,19 @@
 		        <script type="text/javascript" src="js/bootstrap.min.js"></script>
 <script>
 $(function(){
+var brand = 0;
+$(document).on('change','.brand',function()
+{
+brand++;
+if(brand == 3)
+{
+
+	window.location.replace('discover.html');
+
+}
+
+});
+$(".brands").load('http://matchdrobe.com/app/register_app.php?getbrand=1');
 var favorite = 3;
   $( "#fav_male a" ).bind( "tap",function()
 	{
@@ -117,16 +92,16 @@ var favorite = 3;
 	
 	if(favorite == 0)
 	{
-		window.location.replace('brands.html');
+	//	window.location.replace('brands.html');
 
-			$('.pair .cont .items').load("http://matchdrobe.com/catalog/app_ajax_loader.php?cat="+localStorage.f1
+		/*	$('.pair .cont .items').load("http://matchdrobe.com/catalog/app_ajax_loader.php?cat="+localStorage.f1
 			,function()
 		{
 		item_1 = $(".items .hidden_pair").val();
 
      item_2 = 	$(".items .hidden_pair").nextAll(".hidden_pair").val();
 	 
-		});
+		});v*/
 
 	$(".fav").hide();
 	$(".pair,.foot").removeClass('hide').show();
