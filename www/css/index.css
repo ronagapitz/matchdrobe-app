@@ -5,7 +5,11 @@ border-radius: 0px;
 margin-left: 10px !important;
 
 }
-
+#Logo {
+   
+    margin: 1em auto 0;
+    width: 75%;
+}
 .pink_u
 {
 color: #b80941 !important;
@@ -182,12 +186,13 @@ position: relative;
 	
 	.like_modal
 	{
-	
+	font-weight: bold;
+	padding-top: 20px;
 	background: url(../img/like_modal.png);
 	background-size: 100% 100%;
-	height: 282px;
-	background-color: none !important;
-	width: 320px;
+	height: 367px;
+background-color: none !important;
+width: 349px;
 	}
 
 		

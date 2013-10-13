@@ -1,3 +1,5 @@
+
+<!--
 <!DOCTYPE html>
 <!--
     Licensed to the Apache Software Foundation (ASF) under one
@@ -16,7 +18,7 @@
      KIND, either express or implied.  See the License for the
     specific language governing permissions and limitations
     under the License.
--->
+
 <html>
     <head>
         <meta charset="utf-8" />
@@ -39,7 +41,7 @@
 		
  <!-- Button trigger modal -->
  
-		<!-- first page -->
+		<!-- first page 
 		<div>
 		<div  id="first" class="row text-center first">
 		<img  src="img/first.png" />
@@ -92,7 +94,7 @@
 	<div class="span12 text-center" href="#" style="margin-top: 20px">
   <a class="lead pull-right" id="catalogue"  > <img src="./img/skip.png" /></a>
 	</div>
-  </div> -->
+  </div> 
  
   
 </div>
@@ -126,4 +128,404 @@ localStorage.userid = device.uuid;
     
   
     </body>
+</html>
+
+!-->
+
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Multi-page template</title>
+	<link rel="stylesheet" href="css/themes/default/jquery.mobile.css">
+		<link rel="stylesheet" href="css/ron.css">
+       <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+
+	<script src="js/jquery.js"></script>
+	<script src="js/mobile.js"></script>
+	
+	<script>
+	$(function()
+	{
+	
+	$('.ui-btn,.ui-link img').hover(function()
+{
+$(this).css({'opacity': '.6'});
+
+},
+function()
+{
+$(this).css({'opacity': '1'});
+
+});
+
+	$.mobile.page.prototype.options.domCache = true;
+	
+	
+	//brands
+	$(".brands").load('http://matchdrobe.com/app/register_app.php?getbrand=1');
+
+	var brand = 0;
+$(document).on('change','.brand',function()
+{
+brand++;
+if(brand == 3)
+{
+
+$.mobile.changePage( "discover.html", { transition: "slideup", changeHash: false });
+
+}
+
+});
+	
+	//end brands
+
+	//gender
+	  $( ".gender a" ).bind( "tap", 
+function()
+{
+
+
+ var gender = $(this).attr('data-href');
+localStorage.gender = gender;
+
+}  );
+
+
+//end gender
+
+// favorites
+
+var favorite = 3;
+  $( "#fav_fem a" ).bind( "tap",function()
+	{
+	$(this).addClass('selected');
+	$('img',this).attr('src',$('img',this).attr('data-selected'));
+	var fave = $(this).attr('href');
+	$(".more").show();
+	
+
+	
+	if(favorite == 3)
+	{
+	localStorage.f3 = fave;
+	//$.post("http://matchdrobe.com/app/register_app.php",{'device': device.uuid, '3' : fave});
+	}if(favorite == 2)
+	{
+	
+		localStorage.f2 = fave;
+
+	//$.post("http://matchdrobe.com/app/register_app.php",{'device': device.uuid, '2' : fave});
+	}if(favorite == 1)
+	{
+		localStorage.f1 = fave;
+
+	//$.post("http://matchdrobe.com/app/register_app.php",{'device': device.uuid, '1' : fave});
+	}
+	
+	
+		
+	favorite -=1;
+	
+	if(favorite == 0)
+	{
+			window.location.replace('brands.html');
+
+			$('.pair .cont .items').load("http://matchdrobe.com/catalog/app_ajax_loader.php?cat="+localStorage.f1
+			,function()
+		{
+		item_1 = $(".items .hidden_pair").val();
+
+     item_2 = 	$(".items .hidden_pair").nextAll(".hidden_pair").val();
+	 
+		});
+
+	//$(".fav").hide();
+	//$(".pair,.foot").removeClass('hide').show();
+	}
+	$(".more span").text(favorite);
+	return false;
+	});
+	
+//fav male
+var favorite = 3;
+  $( "#fav_male a" ).bind( "tap",function()
+	{
+	$(this).addClass('selected');
+	$('img',this).attr('src',$('img',this).attr('data-selected'));
+	var fave = $(this).attr('href');
+	$(".more").show();
+	
+
+	
+	if(favorite == 3)
+	{
+	localStorage.f3 = fave;
+	//$.post("http://matchdrobe.com/app/register_app.php",{'device': device.uuid, '3' : fave});
+	}if(favorite == 2)
+	{
+	
+		localStorage.f2 = fave;
+
+	//$.post("http://matchdrobe.com/app/register_app.php",{'device': device.uuid, '2' : fave});
+	}if(favorite == 1)
+	{
+		localStorage.f1 = fave;
+
+	//$.post("http://matchdrobe.com/app/register_app.php",{'device': device.uuid, '1' : fave});
+	}
+	
+	
+		
+	favorite -=1;
+	
+	if(favorite == 0)
+	{
+		window.location.replace('brands.html');
+
+			$('.pair .cont .items').load("http://matchdrobe.com/catalog/app_ajax_loader.php?cat="+localStorage.f1
+			,function()
+		{
+		item_1 = $(".items .hidden_pair").val();
+
+     item_2 = 	$(".items .hidden_pair").nextAll(".hidden_pair").val();
+	 
+		});
+
+	$(".fav").hide();
+	$(".pair,.foot").removeClass('hide').show();
+	}
+	$(".more span").text(favorite);
+	return false;
+	});
+	
+//malew
+// end favorites
+	});
+	
+	</script>
+</head>
+
+<body>
+
+<!-- Start of first page: #one -->
+<div data-role="page" id="one">
+
+	<div data-role="header">
+	<!--	<h1>Multi-page</h1> -->
+	</div><!-- /header -->
+
+	<div data-role="content" >
+		<div  id="first" class="row text-center first ui-btn  ui-corner-all bnone">
+		<img  src="img/first.png" />
+		</div>
+		<p><a href="#two" role="button" class="ui-btn  ui-corner-all bnone"><img  src="img/begin.png" /></a></p>
+		<!--<p><a href="#popup" role="button" class="ui-btn ui-shadow ui-corner-all" data-rel="dialog" data-transition="pop">Show page "popup" (as a dialog)</a></p> -->
+	</div><!-- /content -->
+
+	<div data-role="footer" data-theme="a">
+	<!--	<h4>Page Footer</h4> -->
+	</div><!-- /footer -->
+</div><!-- /page one -->
+
+<!-- Start of second page: #two -->
+<div data-role="page" id="two" data-theme="a">
+
+	<div data-role="header">
+		
+	</div><!-- /header -->
+
+	<div data-role="content" data-theme="a">
+		<h2 class="pink center">Are you?</h2>
+		
+<div class="row  text-center gender">
+		
+		
+				<div class="col-xs-6 text-center">
+				<a href="#three" data-href="male" d><img   src="img/male.png" /></a>
+				</div>
+				<div class="col-xs-6 text-center">
+		<a href="#four" data-href="female"  d>	<img   src="img/female.png" /> </a>
+
+				</div>
+		</div>
+	</div><!-- /content -->
+
+	<div data-role="footer">
+	</div><!-- /footer -->
+</div><!-- /page two -->
+
+<!-- Start of third page: #popup -->
+<div data-role="page" id="three">
+
+	<div data-role="header" data-position="fixed" >
+							<a href="#"   data-rel="back" class="back pull-left">	</a>
+							
+							<div class="row text-center" >
+								<img  src="img/matchdrobe.png" />
+
+
+				</div>
+
+	</div><!-- /header -->
+
+	<div data-role="content" data-theme="a">
+	<center>	<h3 class="pink">Choose your three favorite items</h3></center>
+ <div id="fav_male" class="container">	<!-- begin male -->
+				<div class="row text-center marg" style="margin-bottom: 20px !important;
+	margin-top: 20px !important;">
+				<div class="col-xs-4 text-center">
+				<a data-href="61"><img   src="img/m_shirt.png"  data-src="img/m_shirt.png" data-selected="img/m_shirt2.png" /></a>
+
+				</div>
+				<div class="col-xs-4 text-center">
+				<a href="99"><img   src="img/m_suits.png"  data-src="img/m_suits.png" data-selected="img/m_suits2.png" /></a>
+
+				</div><div class="col-xs-4 text-center">
+				<a href="58"><img   src="img/m_jeans.png"  data-src="img/m_jeans.png"  data-selected="img/m_jeans2.png" /></a>
+
+				</div>
+				</div>
+				
+				<div class="row text-center" style="margin-bottom: 20px !important;
+	margin-top: 20px !important;">
+				<div class="col-xs-4 text-center">
+				<a href="101"><img   src="img/m_short.png"    data-src="img/m_short.png"  data-selected="img/m_short2.png" /></a>
+
+				</div>
+				
+				<div class="col-xs-4 text-center">
+				<a href="47"><img   src="img/m_shoe.png"  data-src="img/m_shoe.png"  data-selected="img/m_shoe2.png" /></a>
+
+				</div>
+				<div class="col-xs-4 text-center">
+				<a href="140"><img   src="img/m_under.png"   data-src="img/m_under.png" data-selected="img/m_under2.png" /></a>
+
+				</div>
+				</div>
+				
+				<div class="row text-center"  style="margin-bottom: 20px !important;
+	margin-top: 20px !important;">
+				<div class="col-xs-4 text-center">
+		<!--		<a href="104"><img   src="img/m_tie.png"  data-src="img/m_tie.png"  data-selected="img/m_tie2.png" /></a> -->
+
+				</div>
+				<div class="col-xs-4 text-center">
+				<a href="124"><img   src="img/m_bag.png" data-src="img/m_bag.png"   data-selected="img/m_bag2.png"/></a>
+
+				</div><div class="col-xs-4 text-center">
+			<!--	<a href="46"><img   src="img/m_beauty.png"  data-src="img/m_beauty.png"  data-selected="img/m_beauty2.png" /></a> -->
+
+				</div>
+				</div>
+				
+				</div>
+				
+					</div><!-- /content -->
+
+	<div data-role="footer">
+		<h4>Page Footer</h4>
+	</div><!-- /footer -->
+</div><!-- /page popup -->
+
+
+<!-- Start of third page: #popup -->
+<div data-role="page" id="four">
+
+	<div data-role="header" data-position="fixed" >
+							<a href="#"   data-rel="back" class="back pull-left">	</a>
+							
+							<div class="row text-center" >
+								<img  src="img/matchdrobe.png" />
+
+
+				</div>
+
+	</div><!-- /header -->
+
+	<div data-role="content" data-theme="a">
+	
+	<a href="#five" >sdfsds</a>
+	<center>	<h3 class="pink">Choose your three favorite items</h3></center>
+
+			 <div id="fav_fem" class="container">	<!-- begin female -->
+				<div class="row text-center marg" style="margin-bottom: 20px !important;
+	margin-top: 20px !important;">
+				<div class="col-xs-4 text-center">
+				<a href="61"><img   src="img/f_shirt.png"  data-src="img/f_shirt.png" data-selected="img/f_shirt2.png" /></a>
+
+				</div>
+				<div class="col-xs-4 text-center">
+				<a href="12"><img   src="img/f_dress.png"  data-src="img/f_dress.png" data-selected="img/f_dress2.png" /></a>
+
+				</div><div class="col-xs-4 text-center">
+				<a href="15"><img   src="img/f_jeans.png" data-src="img/f_jeans.png"  data-selected="img/f_jeans2.png" /></a>
+
+				</div>
+				</div>
+				
+				<div class="row text-center" style="margin-bottom: 20px !important;
+	margin-top: 20px !important;">
+				<div class="col-xs-4 text-center">
+				<a href="14"><img   src="img/f_skirt.png"  data-src="img/f_skirt.png"  data-selected="img/f_shorts2.png" /></a>
+
+				</div>
+				<div class="col-xs-4 text-center">
+				<a href="64"><img   src="img/f_under.png"  data-src="img/f_under.png"  data-selected="img/f_under2.png" /></a>
+
+				</div><div class="col-xs-4 text-center">
+				<a href="66"><img   src="img/f_shorts.png"  data-src="img/f_shorts.png"  data-selected="img/f_skirt2.png" /></a>
+
+				</div>
+				</div>
+				
+				<div class="row text-center"  style="margin-bottom: 20px !important;
+	margin-top: 20px !important;">
+				<div class="col-xs-4 text-center">
+			<!--	<a href="16"><img   src="img/f_beauty2.png"  data-src="img/f_beauty2.png"  data-selected="img/f_beauty.png" /></a> -->
+
+				</div>
+				<div class="col-xs-4 text-center">
+				<a href="53"><img   src="img/f_shoes.png"   data-src="img/f_shoes.png"   data-selected="img/f_shoes2.png"/></a>
+
+				</div><div class="col-xs-4 text-center">
+		<!--		<a href="71"><img   src="img/f_accesories.png"   data-src="img/f_accesories.png"  data-selected="img/f_accesories.png" /></a> -->
+
+				</div>
+				</div>
+				
+				
+				</div><!-- end female -->
+				
+				
+				
+				
+				
+					</div><!-- /content -->
+
+	<div data-role="footer">
+		<h4>Page Footer</h4>
+	</div><!-- /footer -->
+</div><!-- /page four fav fem -->
+
+<!-- Start of brands -->
+<div data-role="page" id="five" data-theme="a">
+
+	<div data-role="header">
+		
+	</div><!-- /header -->
+
+	<div data-role="content" data-theme="a">
+	frfrfrfr
+	</div><!-- /content -->
+
+	<div data-role="footer">
+	</div><!-- /footer -->
+</div><!-- /page two -->
+
+</body>
 </html>

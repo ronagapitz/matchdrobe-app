@@ -7,6 +7,7 @@
     <link rel="stylesheet" type="text/css" href="css/index.css" />
        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
        <link rel="stylesheet" type="text/css" href="css/mobile.css" />
+       <link rel="stylesheet" type="text/css" href="css/ron.css" />
 
 </head>
 <body>
@@ -201,9 +202,23 @@ top: 150px;">
         </div>
 		
 		-->
-        <div class="modal-body" style="position: relative;
-top: 147px;">
-          <input type="text" class="tags" /> <br/> <br/>
+        <div class="modal-body" >
+      <p>  Choose the appropriate tags and you may also add your own. <br/>
+Earn 1 Style Point for each valid tag.</p>
+<div id="parent_tag">
+<div class="tops">
+<div class="top_tags">Preppy</div>
+<div class="top_tags">Dress</div>
+<div class="top_tags">LBD</div>
+<div class="top_tags">Floral</div>
+<div class="top_tags">Color Blocking</div>
+</div>
+
+<div id="add_tag">
+<input type="text" id="tag" />
+
+</div>
+</div><br/> <br/>
 		  
 		  <a class="pull-left" href=# data-dismiss="modal" id="cancel"><img src="img/b_back.png" /></a>  		  <a  href=#  class="confirm"  data-dismiss="modal"><img src="img/confirm.png" /></a>
 
@@ -272,6 +287,36 @@ top: 147px;">
 				   
 <script>
 $(function(){
+
+//tags only
+
+ var array_tag = [];
+	$('#tag').val('').focus();
+	$(document).on('click','.ctag',function()
+	{
+	$(this).remove();
+	
+	});
+	    $('#tag').keypress(function(event) {
+        if (event.keyCode == 32) {
+           $('#add_tag').prepend('<div class="ctag">'+$('#tag').val()+' <span>x</span></div>');
+		 
+		 array_tag.push( $('#tag').val() );
+		$('#tag').focus().val('');
+        }
+    });
+
+	
+	$('.top_tags').click(function()
+	{
+	$(this).css({'background':'#b80941','color': 'white'});
+
+	
+	
+	
+	});
+
+//tags
 $.mobile.page.prototype.options.domCache = true;
 var item_1, item_2, status, elapsed;
 var getter =1;
@@ -307,10 +352,10 @@ if(status !== 0)
 	//pair
 		$('.confirm').on('tap', function() {
 
-		$.post("http://matchdrobe.com/app/register_app.php",{'pairing': localStorage.userid,'item_1':item_1,'item_2': item_2,'status': status,'elapsed': elapsed,'keywords': $('.tags').val() },function() //update points
+		$.post("http://matchdrobe.com/app/register_app.php",{'pairing': localStorage.userid,'item_1':item_1,'item_2': item_2,'status': status,'elapsed': elapsed,'keywords': array_tag },function() //update points
 		{
 		$(".points").load("http://matchdrobe.com/app/register_app.php",{'get_points': localStorage.userid});
-			$(".tags").val("");
+			$("#add_tag").empty();
 		}
 		
 		

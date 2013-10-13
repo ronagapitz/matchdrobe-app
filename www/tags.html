@@ -1,0 +1,107 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Multi-page template</title>
+	<link rel="stylesheet" href="css/themes/default/jquery.mobile.css">
+		<link rel="stylesheet" href="css/ron.css">
+       <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+
+	<script src="js/jquery.js"></script>
+	<script src="js/mobile.js"></script>
+	
+	<script>
+	$(function()
+	{
+	 var array_tag = [];
+	$('#tag').val('').focus();
+	$(document).on('click','.ctag',function()
+	{
+	$(this).remove();
+	
+	});
+	    $('#tag').keypress(function(event) {
+        if (event.keyCode == 32) {
+           $('#add_tag').prepend('<div class="ctag">'+$('#tag').val()+' <span>x</span></div>');
+		 
+		 array_tag.push( $('#tag').val() );
+		$('#tag').focus();
+        }
+    });
+
+	
+	$('.top_tags').click(function()
+	{
+	$(this).css({'background':'#b80941','color': 'white'});
+
+	
+	
+	
+	});
+//malew
+// end favorites
+	});
+	
+	</script>
+	<style>
+	#tag ,.ui-input-text
+	{
+	float: left;
+	box-shadow: none !important;
+	border: none !important;
+	border-style: none !important;
+	width: 100px !important;
+	border-width: 0px !important;
+	}
+	#parent_tag
+	{
+ width: 230px;
+ height: 190px;
+ border: solid 1px #b8b8b8;
+	}
+	.ctag
+	{
+	background: #b80941 !important;
+	color: white !important;
+	
+	}
+	.top_tags ,.ctag
+	{
+	float: left;
+	background: #d3d3d3;
+	padding: 5px; margin: 5px;
+	color: black;
+position: relative;
+
+	}
+	.tops
+	{
+	overflow: hidden;
+	 border-bottom: solid 1px #b8b8b8;
+
+	}
+	</style>
+</head>
+
+<body>
+Choose the appropriate tags and you may also add your own. <br/>
+Earn 1 Style Point for each valid tag.
+<div id="parent_tag">
+<div class="tops">
+<div class="top_tags">Preppy</div>
+<div class="top_tags">Preppy</div>
+<div class="top_tags">Preppy</div>
+<div class="top_tags">Preppy</div>
+<div class="top_tags">Preppy</div>
+</div>
+
+<div id="add_tag">
+<input type="text" id="tag" />
+
+</div>
+</div>
+</body>
+</html>
