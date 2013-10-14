@@ -144,6 +144,8 @@ localStorage.userid = device.uuid;
 	<link rel="stylesheet" href="css/themes/default/jquery.mobile.css">
 		<link rel="stylesheet" href="css/ron.css">
        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+	           <script type="text/javascript" src="phonegap.js"></script>
+
 
 	<script src="js/jquery.js"></script>
 	<script src="js/mobile.js"></script>
@@ -151,6 +153,11 @@ localStorage.userid = device.uuid;
 	<script>
 	$(function()
 	{
+	$.mobile.page.prototype.options.domCache = true;
+localStorage.userid = device.uuid;
+
+	// end favorite
+	$.post("http://matchdrobe.com/app/register_app.php",{'device_id': device.uuid });
 	
 	$('.ui-btn,.ui-link img').hover(function()
 {
@@ -167,7 +174,7 @@ $(this).css({'opacity': '1'});
 	
 	
 	//brands
-	$(".brands").load('http://matchdrobe.com/app/register_app.php?getbrand=1');
+	//$(".brands").load('http://matchdrobe.com/app/register_app.php?getbrand=1');
 
 	var brand = 0;
 $(document).on('change','.brand',function()
@@ -320,7 +327,7 @@ var favorite = 3;
 	</div><!-- /header -->
 
 	<div data-role="content" >
-		<div  id="first" class="row text-center first ui-btn  ui-corner-all bnone">
+		<div  id="first" class="row text-center first ui-btn  ui-corner-all bnone ">
 		<img class="img-responsive" src="img/Discover_Logo.png" style="margin: auto" />
 		</div>
 		<p><a href="#two" role="button" class="ui-btn  ui-corner-all bnone"><img  src="img/begin.png" /></a></p>
@@ -428,7 +435,6 @@ var favorite = 3;
 					</div><!-- /content -->
 
 	<div data-role="footer">
-		<h4>Page Footer</h4>
 	</div><!-- /footer -->
 </div><!-- /page popup -->
 
@@ -449,7 +455,6 @@ var favorite = 3;
 
 	<div data-role="content" data-theme="a">
 	
-	<a href="#five" >sdfsds</a>
 	<center>	<h3 class="pink">Choose your three favorite items</h3></center>
 
 			 <div id="fav_fem" class="container">	<!-- begin female -->
@@ -508,7 +513,6 @@ var favorite = 3;
 					</div><!-- /content -->
 
 	<div data-role="footer">
-		<h4>Page Footer</h4>
 	</div><!-- /footer -->
 </div><!-- /page four fav fem -->
 

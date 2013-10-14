@@ -4,7 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>tap demo</title>
-    <link rel="stylesheet" type="text/css" href="css/index.css" />
+	    <link rel="stylesheet" type="text/css" href="css/ron.css" />
+
        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
        <link rel="stylesheet" type="text/css" href="css/mobile.css" />
 
@@ -12,18 +13,22 @@
 <body>
  
  
- 
-<div class="fav row">
-					<a href="#"   data-rel="back">	<img class="pull-left" href="fav"  src="img/back.png" /></a>
+ <div data-role="page" id="one">
 
-				<div class="row text-center" style="margin-bottom: 20px !important;
-	margin-top: 20px !important;">
-								<img  src="img/choose.png" />
+	<div data-role="header">
+<div data-role="header" data-position="fixed" >
+							<a href="#"   data-rel="back" class="back pull-left">	</a>
+							
+							<div class="row text-center" >
+								<img  src="img/matchdrobe.png" />
 
 
 				</div>
-				</div>
-				 <div  class="container">	<!-- begin male -->
+
+	</div><!-- /header -->	</div><!-- /header -->
+
+	<div data-role="content" >
+			 <div  class="container">	<!-- begin male -->
 			
 				
 				
@@ -34,6 +39,15 @@
 				</div>
 				
 				</div>
+		<!--<p><a href="#popup" role="button" class="ui-btn ui-shadow ui-corner-all" data-rel="dialog" data-transition="pop">Show page "popup" (as a dialog)</a></p> -->
+	</div><!-- /content -->
+
+	<div data-role="footer" data-theme="a">
+	<!--	<h4>Page Footer</h4> -->
+	</div><!-- /footer -->
+</div><!-- /page one -->
+
+			
 				
 				
 
@@ -49,6 +63,7 @@ $(function(){
 var brand = 0;
 $(document).on('change','.brand',function()
 {
+$(this).parent().addClass('bpink');
 brand++;
 if(brand == 3)
 {

@@ -85,12 +85,12 @@ Matchdrobe App    </description>
     <gap:splash src="res/screen/windows-phone/screen-portrait.jpg" gap:platform="winphone" />
  -->
  
-     <gap:splash src="img/splash.png"         gap:platform="blackberry" />
+     <gap:splash src="img/Discover_Logo.png"         gap:platform="blackberry" />
 
- <gap:splash src="img/splash.png"  gap:platform="android" gap:density="ldpi" />
-    <gap:splash src="img/splash.png"  gap:platform="android" gap:density="mdpi" />
-    <gap:splash src="img/splash.png"  gap:platform="android" gap:density="hdpi" />
-    <gap:splash src="img/splash.png" gap:platform="android" gap:density="xhdpi" />
+ <gap:splash src="img/Discover_Logo.png"  gap:platform="android" gap:density="ldpi" />
+    <gap:splash src="img/Discover_Logo.png"  gap:platform="android" gap:density="mdpi" />
+    <gap:splash src="img/Discover_Logo.png"  gap:platform="android" gap:density="hdpi" />
+    <gap:splash src="img/Discover_Logo.png" gap:platform="android" gap:density="xhdpi" />
     <!--
         Define access to external domains.
 
