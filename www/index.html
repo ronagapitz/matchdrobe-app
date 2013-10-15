@@ -210,6 +210,7 @@ localStorage.gender = gender;
 var favorite = 3;
   $( "#fav_fem a" ).bind( "tap",function()
 	{
+	
 	$(this).addClass('selected');
 	$('img',this).attr('src',$('img',this).attr('data-selected'));
 	var fave = $(this).attr('href');

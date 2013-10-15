@@ -5,6 +5,10 @@ border-radius: 0px;
 margin-left: 10px !important;
 
 }
+.foot a
+{
+color: white !important;
+}
 #Logo {
    
     margin: 1em auto 0;
